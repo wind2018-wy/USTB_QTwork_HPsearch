@@ -20,5 +20,7 @@ void MainWindow::on_Button_SearchStart_clicked()
     QObject::connect(this,SIGNAL(showSerwin()),&serWin_0,SLOT(recv()));
 
     emit showSerwin();
+
+    this->hide();
 }
 

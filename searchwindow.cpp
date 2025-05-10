@@ -96,12 +96,6 @@ void SearchWindow::on_Butt_goalNo_clicked()
         std::string foreLine="";
         int foreSet=1;
 
-        if(okk){
-            if(!okkNextPara){
-                ui->goalWordShow->append("目标段即为本书最后一段");
-            }
-            break;
-        }
         while (std::getline(tLine,buf)){
             if(okk){
                 if(buf.length()>3&&buf.substr(0,7)!="Chapter"&&buf.substr(0,7)!="CHAPTER"){
@@ -138,6 +132,12 @@ void SearchWindow::on_Butt_goalNo_clicked()
                 foreLine=buf;
             }
             //ui->goalWordShow->append(QString::fromStdString(buf));
+        }
+        if(okk){
+            if(!okkNextPara){
+                ui->goalWordShow->append("目标段即为本书最后一段");
+            }
+            break;
         }
         tLine.close();
         da.reset();
