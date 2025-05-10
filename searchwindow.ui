@@ -16,9 +16,9 @@
   <widget class="QLineEdit" name="goalWord">
    <property name="geometry">
     <rect>
-     <x>170</x>
-     <y>90</y>
-     <width>113</width>
+     <x>50</x>
+     <y>60</y>
+     <width>151</width>
      <height>23</height>
     </rect>
    </property>
@@ -26,14 +26,14 @@
   <widget class="QPushButton" name="Butt_goalWord">
    <property name="geometry">
     <rect>
-     <x>180</x>
-     <y>130</y>
-     <width>80</width>
+     <x>80</x>
+     <y>90</y>
+     <width>91</width>
      <height>24</height>
     </rect>
    </property>
    <property name="text">
-    <string>PushButton</string>
+    <string>点击开始查找</string>
    </property>
   </widget>
   <widget class="QTextBrowser" name="goalWordShow">
@@ -54,6 +54,55 @@
      <width>391</width>
      <height>192</height>
     </rect>
+   </property>
+  </widget>
+  <widget class="QTextEdit" name="noInPut">
+   <property name="geometry">
+    <rect>
+     <x>80</x>
+     <y>180</y>
+     <width>104</width>
+     <height>31</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>70</x>
+     <y>40</y>
+     <width>101</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>输入要查找的内容</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="Butt_goalNo">
+   <property name="geometry">
+    <rect>
+     <x>90</x>
+     <y>220</y>
+     <width>80</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>点击开始查找</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>80</x>
+     <y>160</y>
+     <width>111</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>输入要查找的序号</string>
    </property>
   </widget>
  </widget>

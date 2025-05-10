@@ -1,5 +1,6 @@
 #include "data.h"
 void Data::reset(){
-    Page=0;
+    Page=1;
     Chapter=0;
+    Line=0;
 }
