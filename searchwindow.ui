@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>793</width>
-    <height>558</height>
+    <width>795</width>
+    <height>692</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -39,10 +39,20 @@
   <widget class="QTextBrowser" name="goalWordShow">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>180</y>
-     <width>781</width>
-     <height>351</height>
+     <x>0</x>
+     <y>280</y>
+     <width>711</width>
+     <height>371</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QTextBrowser" name="debugShow">
+   <property name="geometry">
+    <rect>
+     <x>370</x>
+     <y>60</y>
+     <width>391</width>
+     <height>192</height>
     </rect>
    </property>
   </widget>

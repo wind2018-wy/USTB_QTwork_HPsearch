@@ -3,7 +3,12 @@
 #include <QString>
 #include <fstream>
 #include <QDebug>
+#include "data.h"
+#include <string>
+#include "tool.h"
 
+Data da;
+Tool tool;
 SearchWindow::SearchWindow(QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::SearchWindow)
@@ -24,12 +29,68 @@ void SearchWindow::on_Butt_goalWord_clicked()
     QString s=ui->goalWord->text();
     ui->goalWordShow->append("查找词条 "+s+":");
     std::fstream tLine;
-    tLine.open("HP0.txt",std::ios::in);
-    if(!tLine.is_open()){
-        qDebug()<<"文件打开失败";
-    }
-    char buf[1024];
-    while (tLine.getline(buf,sizeof(buf))){
-        ui->goalWordShow->append(QString::fromStdString(buf));
+    std::string lineBook[8]={"J.K.Rowling - HP 0 - Harry Potter Prequel.txt","J.K. Rowling - Quidditch Through the Ages.txt","HP2--Harry_Potter_and_the_Chamber_of_Secrets_Book_2_.txt","J.K. Rowling - HP 3 - Harry Potter and the Prisoner of Azkaban.txt","J.K. Rowling - HP 4 - Harry Potter and the Goblet of Fire.txt","J.K. Rowling - The Tales of Beedle the Bard.txt","J.K. Rowling - HP 6 - Harry Potter and the Half-Blood Prince.txt","HP7--Harry_Potter_and_the_Deathly_Hallows_Book_7_.txt"};
+
+    for(int i=0;i<8;i++){
+        tLine.open(lineBook[i],std::ios::in);
+        da.BookName=lineBook[i];
+        if(!tLine.is_open()){
+            qDebug()<<"文件打开失败";
+        }
+        std::string buf;
+        std::string strs=s.toStdString();
+        int length=0;
+        while (std::getline(tLine,buf)){
+            length=buf.length();
+            if(length>0&&length<=20&&(tool.search("CHAPTER",buf)||tool.search("Chapter",buf))){
+                da.Chapter++;
+            }
+            if(length>0&&length<=4&&tool.isNumber(length,buf)){
+                ui->debugShow->append(QString::fromStdString(buf));
+                da.Page++;
+            }
+            if(tool.search(strs,buf)){
+                da.No++;
+                QString qNo=QString::number(da.No);
+                QString qPage=QString::number(da.Page);
+                QString qChapter=QString::number(da.Chapter);
+                std::string stdLineBook=lineBook[i].substr(0,lineBook[i].length()-5);
+                QString qStdLineBook=QString::fromStdString(stdLineBook);
+                ui->goalWordShow->append("NO:"+qNo+" name:"+s+" page:"+qPage+" chapter:"+qChapter+" bookName:"+qStdLineBook);
+            }
+            //ui->goalWordShow->append(QString::fromStdString(buf));
+        }
+        tLine.close();
+        da.reset();
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
