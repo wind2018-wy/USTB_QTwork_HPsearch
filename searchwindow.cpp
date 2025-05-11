@@ -76,6 +76,10 @@ void SearchWindow::on_Butt_goalWord_clicked()
 }
 void SearchWindow::on_Butt_goalNo_clicked()
 {
+    /*
+    clock_t startTime,endTime;        测试查找时间
+    startTime = clock();
+    */
     QString text =ui->noInPut->toPlainText();
     bool ok;
     int tnumber = text.toInt(&ok);
@@ -149,5 +153,10 @@ void SearchWindow::on_Butt_goalNo_clicked()
         tLine.close();
         da.reset();
     }
+    /*
+    endTime = clock();
+    double tempp=(double)(endTime- startTime) /CLOCKS_PER_SEC;
+    ui->debugShow->append( "Totle Time : "+QString::number(tempp)+ "s" );
+    */
     da.No=0;
 }
