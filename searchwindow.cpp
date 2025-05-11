@@ -26,6 +26,10 @@ void SearchWindow::recv(){
 
 void SearchWindow::on_Butt_goalWord_clicked()
 {
+/*
+    clock_t startTime,endTime;        测试查找时间
+    startTime = clock();
+*/
     QString s=ui->goalWord->text();
     ui->goalWordShow->append("查找词条 "+s+":");
     std::fstream tLine;
@@ -63,6 +67,11 @@ void SearchWindow::on_Butt_goalWord_clicked()
         tLine.close();
         da.reset();
     }
+/*
+    endTime = clock();
+    double tempp=(double)(endTime- startTime) /CLOCKS_PER_SEC;
+    ui->debugShow->append( "Totle Time : "+QString::number(tempp)+ "s" );
+*/
     da.No=0;
 }
 void SearchWindow::on_Butt_goalNo_clicked()

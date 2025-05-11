@@ -20,8 +20,6 @@ private slots:
 
     void on_Butt_goalWord_clicked();
 
-    void on_pushButton_clicked();
-
     void on_Butt_goalNo_clicked();
 
 private:
