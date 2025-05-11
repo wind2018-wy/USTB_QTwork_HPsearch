@@ -22,6 +22,8 @@ private slots:
 
     void on_Butt_goalNo_clicked();
 
+    void on_Butt_clear_clicked();
+
 private:
     Ui::SearchWindow *ui;
 };

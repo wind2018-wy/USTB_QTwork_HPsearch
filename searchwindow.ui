@@ -105,6 +105,45 @@
     <string>输入要查找的序号</string>
    </property>
   </widget>
+  <widget class="QCheckBox" name="timeCheck">
+   <property name="geometry">
+    <rect>
+     <x>230</x>
+     <y>160</y>
+     <width>101</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>显示查找时间</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="clearCheck">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>190</y>
+     <width>161</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>每次搜索都清除搜索记录</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="Butt_clear">
+   <property name="geometry">
+    <rect>
+     <x>230</x>
+     <y>220</y>
+     <width>80</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>清除搜索记录</string>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>

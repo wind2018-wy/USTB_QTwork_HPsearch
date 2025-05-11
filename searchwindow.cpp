@@ -26,10 +26,14 @@ void SearchWindow::recv(){
 
 void SearchWindow::on_Butt_goalWord_clicked()
 {
-/*
-    clock_t startTime,endTime;        测试查找时间
+
+    if(ui->clearCheck->checkState()==Qt::Checked){
+        ui->goalWordShow->clear();
+    }
+
+    clock_t startTime,endTime;
     startTime = clock();
-*/
+
     QString s=ui->goalWord->text();
     ui->goalWordShow->append("查找词条 "+s+":");
     std::fstream tLine;
@@ -67,19 +71,24 @@ void SearchWindow::on_Butt_goalWord_clicked()
         tLine.close();
         da.reset();
     }
-/*
+
     endTime = clock();
     double tempp=(double)(endTime- startTime) /CLOCKS_PER_SEC;
-    ui->debugShow->append( "Totle Time : "+QString::number(tempp)+ "s" );
-*/
+    if(ui->timeCheck->checkState()==Qt::Checked){
+        ui->debugShow->append( "Totle Time : "+QString::number(tempp)+ "s" );
+    }
+
     da.No=0;
 }
 void SearchWindow::on_Butt_goalNo_clicked()
 {
-    /*
-    clock_t startTime,endTime;        测试查找时间
+    if(ui->clearCheck->checkState()==Qt::Checked){
+        ui->debugShow->clear();
+    }
+
+    clock_t startTime,endTime;
     startTime = clock();
-    */
+
     QString text =ui->noInPut->toPlainText();
     bool ok;
     int tnumber = text.toInt(&ok);
@@ -153,10 +162,19 @@ void SearchWindow::on_Butt_goalNo_clicked()
         tLine.close();
         da.reset();
     }
-    /*
+
     endTime = clock();
     double tempp=(double)(endTime- startTime) /CLOCKS_PER_SEC;
-    ui->debugShow->append( "Totle Time : "+QString::number(tempp)+ "s" );
-    */
+    if(ui->timeCheck->checkState()==Qt::Checked){
+        ui->debugShow->append( "Totle Time : "+QString::number(tempp)+ "s" );
+    }
+
     da.No=0;
 }
+
+void SearchWindow::on_Butt_clear_clicked()
+{
+    ui->goalWordShow->clear();
+    ui->debugShow->clear();
+}
+
